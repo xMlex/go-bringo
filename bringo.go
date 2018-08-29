@@ -1,12 +1,12 @@
 package bringo
 
 import (
-	"github.com/go-resty/resty"
-	"log"
 	"encoding/json"
 	"fmt"
-	"time"
+	"github.com/go-resty/resty"
+	"log"
 	"strconv"
+	"time"
 )
 
 const Url = "https://api.bringo247.ru/api"
@@ -61,7 +61,7 @@ func (s *Bringo) Get(method string) ([]byte, error) {
 	return s.request(method, nil, false)
 }
 
-func (s *Bringo) GetUnmarshal(method string, unmarshal interface{}) (error) {
+func (s *Bringo) GetUnmarshal(method string, unmarshal interface{}) error {
 
 	response, err := s.Get(method)
 	if err != nil {
@@ -79,7 +79,7 @@ func (s *Bringo) Post(method string, body interface{}) ([]byte, error) {
 	return s.request(method, body, true)
 }
 
-func (s *Bringo) PostUnmarshal(method string, body interface{}, unmarshal interface{}) (error) {
+func (s *Bringo) PostUnmarshal(method string, body interface{}, unmarshal interface{}) error {
 
 	response, err := s.Post(method, body)
 	if err != nil {
@@ -106,7 +106,6 @@ func (s *Bringo) Login() error {
 	return nil
 }
 
-
 func (s *Bringo) Calculate(delivery *Delivery) (float64, error) {
 	var result CalculateResponse
 
@@ -132,7 +131,7 @@ func (s *Bringo) Create(delivery *Delivery) (*InfoResponse, error) {
 func (s *Bringo) Cancel(id int) (*InfoResponse, error) {
 	var result InfoResponse
 
-	err := s.GetUnmarshal("deliveries/cancel/" + strconv.Itoa(id), &result)
+	err := s.GetUnmarshal("deliveries/cancel/"+strconv.Itoa(id), &result)
 	if err != nil {
 		return nil, err
 	}
@@ -143,7 +142,7 @@ func (s *Bringo) Cancel(id int) (*InfoResponse, error) {
 func (s *Bringo) Info(id int) (*InfoResponse, error) {
 	var result InfoResponse
 
-	err := s.GetUnmarshal("deliveries/info/" + strconv.Itoa(id), &result)
+	err := s.GetUnmarshal("deliveries/info/"+strconv.Itoa(id), &result)
 	if err != nil {
 		return nil, err
 	}
@@ -151,7 +150,7 @@ func (s *Bringo) Info(id int) (*InfoResponse, error) {
 	return &result, nil
 }
 
-func New() *Bringo  {
+func New() *Bringo {
 	instance := &Bringo{}
 	return instance
 }
