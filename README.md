@@ -1,7 +1,7 @@
 # go-bringo
 
 [![GoDoc](https://godoc.org/github.com/xMlex/go-bringo?status.svg)](https://godoc.org/github.com/xMlex/go-bringo)
-[![Go Report Card](https://goreportcard.com/badge/github.com/xMlex/go-bringo)](https://goreportcard.com/report/github.com/xMlex/go-bringo)
+[![Go Report Card](https://goreportcard.com/badge/github.com/xMlex/go-bringo?v1)](https://goreportcard.com/report/github.com/xMlex/go-bringo)
 [![Travis CI](https://travis-ci.org/xMlex/go-bringo.svg?branch=master)](https://travis-ci.org/xMlex/go-bringo)
 
 Golang wrapper for bringo247.ru API delivery
